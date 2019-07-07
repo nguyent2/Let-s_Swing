@@ -2,10 +2,9 @@ import turtle
 
 wn = turtle.Screen()
 
-
 def main():
     wn.setworldcoordinates(-5, -5, 200, 100)
-    wn.bgcolor("#66e0ff")
+    wn.bgcolor("#b3ffe6")
 
     thuy = turtle.Turtle()
     thuy.color("red")
@@ -22,7 +21,9 @@ def main():
             t.forward(y)
 
     a= int((pythagore_triangle(80,40)))
+
     def batdau():
+
         thuy.left(60)
         thuy.forward(80)
 
@@ -56,7 +57,19 @@ def main():
         draw_rectangle(thuy,100,10)
         thuy.end_fill()
 
+    def ketthuc():
+        maithy = turtle.Turtle()
+        maithy.color("#000099")
+        maithy.penup()
+        maithy.left(90)
+        maithy.forward(120)
+        maithy.right(90)
+        maithy.forward(80)
+        maithy.pendown()
+        maithy.write("This Is A Love Swing", move=False, align="center", font=("Helvetica",30, "bold"))
+
     batdau()
+    ketthuc()
 
 main()
 wn.exitonclick()
