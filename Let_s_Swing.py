@@ -2,7 +2,7 @@ import turtle
 
 wn = turtle.Screen()
 wn.setworldcoordinates(-5,-5,200,100)
-wn.bgcolor("#66ffff")
+wn.bgcolor("#66e0ff")
 
 thuy = turtle.Turtle()
 thuy.color("red")
@@ -48,7 +48,7 @@ def batdau():
     thuy.pendown()
     thuy.right(90)
     thuy.forward(a-a/4)
-    thuy.color("green")
+    thuy.color("#800000")
     thuy.begin_fill()
     draw_rectangle(thuy,100,10)
     thuy.end_fill()
