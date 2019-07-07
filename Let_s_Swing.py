@@ -62,9 +62,9 @@ def main():
         maithy.color("#000099")
         maithy.penup()
         maithy.left(90)
-        maithy.forward(120)
+        maithy.forward(75)
         maithy.right(90)
-        maithy.forward(80)
+        maithy.forward(95)
         maithy.pendown()
         maithy.write("This Is A Love Swing", move=False, align="center", font=("Helvetica",30, "bold"))
 
