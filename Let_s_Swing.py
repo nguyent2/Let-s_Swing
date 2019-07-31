@@ -1,3 +1,5 @@
+#Author: Thy H. Nguyen
+
 import turtle
 
 wn = turtle.Screen()
