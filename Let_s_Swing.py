@@ -1,77 +1,128 @@
-#Author: Thy H. Nguyen
+#################################################################################
+# Author: Thy H. Nguyen
+# Username: nguyent2
+#
+# Assignment: A03: A Pair of Fully Functional Gitty Psychedelic Robotic Turtles
+# Purpose: Learning Objectives
+# Grow to appreciate pair programming a little more.
+# Continue practicing creating and using functions.
+# More practice on using the turtle library.
+# Learn about how computers represent colors.
+# Learn about source control and git.
+# Google Doc Link: https://docs.google.com/document/d/1ESXaEmAVPOV7Git4coeOZfVLM6Tuy64xYXGSnApyoww/edit?usp=sharing
+#
+#################################################################################
+# Acknowledgements: Berea College
+# Citation:
+# https://www.w3schools.com/colors/colors_groups.asp (get color for the turtle)
+# https://docs.python.org/3.3/library/turtle.html?highlight=turtle#
+#################################################################################
 
 import turtle
+from time import sleep
 
-wn = turtle.Screen()
+def pythagore_triangle(c, b):
+    """
+    This function calculate the side of a right triangle using the Pythagore Theorem
+    :param c:
+    :param b:
+    :return:
+    """
+    return ((c ** 2 - b ** 2) ** (0.5))
 
+
+def draw_rectangle(thy,x,y):
+    """
+    This function draws a rectangle. As a swing will look like a rectangle
+    :param thy:
+    :param x:
+    :param y:
+    :return:
+    """
+    for i in range(2):
+        thy.right(90)
+        thy.forward(x)
+        thy.right(90)
+        thy.forward(y)
+
+def draw_swing(thy):
+    """
+    This function draws a swing.
+    :param thy:
+    :param sides:
+    :return:
+    """
+    #Construct tne swing with nearly a trapezoid
+    thy.left(60)
+    thy.forward(80)
+
+    thy.right(60)
+    thy.forward(100)
+
+    thy.right(60)
+    thy.forward(80)
+
+    thy.penup()
+    thy.right(120)
+    thy.forward(180)
+
+    thy.right(180)
+    thy.forward(40)
+    thy.left(90)
+    sides = int((pythagore_triangle(80, 40)))
+    thy.forward(sides / 4)
+
+    thy.pendown()
+    thy.forward(sides - sides / 4)
+
+    thy.penup()
+    thy.right(90)
+    thy.forward(100)
+
+    thy.pendown()
+    thy.right(90)
+    thy.forward(sides - sides / 4)
+    thy.color("#800000")
+    thy.begin_fill()
+    draw_rectangle(thy, 100, 10)
+    thy.end_fill()
+
+def write_word(maithy, ask_color):
+    """
+    This function writes this is a swing
+    :param maithy:
+    :return:
+    """
+    maithy.penup()
+    maithy.left(90)
+    maithy.forward(75)
+    maithy.right(90)
+    maithy.forward(95)
+    maithy.pendown()
+    maithy.write("This is a " + ask_color + " swing", move=False, align="center", font=("Helvetica", 30, "bold"))
+    #Print the color of the swing
 def main():
-    wn.setworldcoordinates(-5, -5, 200, 100)
-    wn.bgcolor("#b3ffe6")
-
-    thuy = turtle.Turtle()
-    thuy.color("red")
-    thuy.pensize(3)
-
-    def pythagore_triangle(c,b):
-        return ((c**2-b**2)**(0.5))
-
-    def draw_rectangle(t,x,y):
-       for i in range(2):
-            t.right(90)
-            t.forward(x)
-            t.right(90)
-            t.forward(y)
-
-    a= int((pythagore_triangle(80,40)))
-
-    def batdau():
-
-        thuy.left(60)
-        thuy.forward(80)
-
-        thuy.right(60)
-        thuy.forward(100)
-
-        thuy.right(60)
-        thuy.forward(80)
-
-        thuy.penup()
-        thuy.right(120)
-        thuy.forward(180)
-
-        thuy.right(180)
-        thuy.forward(40)
-        thuy.left(90)
-        thuy.forward(a/4)
-
-        thuy.pendown()
-        thuy.forward(a-a/4)
-
-        thuy.penup()
-        thuy.right(90)
-        thuy.forward(100)
-
-        thuy.pendown()
-        thuy.right(90)
-        thuy.forward(a-a/4)
-        thuy.color("#800000")
-        thuy.begin_fill()
-        draw_rectangle(thuy,100,10)
-        thuy.end_fill()
-
-    def ketthuc():
-        maithy = turtle.Turtle()
-        maithy.color("#000099")
-        maithy.penup()
-        maithy.left(90)
-        maithy.forward(75)
-        maithy.right(90)
-        maithy.forward(95)
-        maithy.pendown()
-        maithy.write("This Is A Love Swing", move=False, align="center", font=("Helvetica",30, "bold"))
-
-    batdau()
-    ketthuc()
+    """
+    Call all of the functions and set up all of the turtles as well as the background
+    """
+    ask_color = input("Enter a color: [pink], [red], [blue], [yellow]")
+    sleep(2)
+    wns = turtle.Screen()
+    wns.setworldcoordinates(-5, -5, 200, 100)
+    wns.bgcolor("#b3ffe6")
+    thy = turtle.Turtle()
+    if ask_color == "pink" or ask_color == "red" or ask_color == "blue" or ask_color == "yellow":
+        thy.color(ask_color)
+    else:
+        ask_color = "purple"
+        thy.color("purple")
+    thy.pensize(3)
+    maithy = turtle.Turtle()
+    maithy.color("#000099")
+    draw_swing(thy)
+    write_word(maithy, ask_color)
+    wns.exitonclick()
 
 main()
-wn.exitonclick()
+
+
