@@ -1,4 +1,3 @@
-# Let-s_Swing
-This is a Swing of Love
+A03: A Pair of Fully Functional Gitty Psychedelic Robotic Turtles
 
-Citation: https://www.youtube.com/watch?v=8ZhWrb2pEe4
+Name: Thy H. Nguyen
